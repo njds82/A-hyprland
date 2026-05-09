@@ -1,0 +1,78 @@
+/* Waybar — Ghost Horizon Edition (Transparent & Soft) */
+
+window#waybar {
+    background: transparent;
+    border: none;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+}
+
+/* ── العناصر الأساسية (شفافية زجاجية داكنة) ────────── */
+#clock,
+#idle_inhibitor,
+#tray,
+#battery,
+#memory,
+#cpu,
+#network,
+#language,
+#backlight,
+#pulseaudio,
+#bluetooth,
+#temperature,
+#mpris {
+    /* خلفية شبه شفافة جداً لتمتزج مع ألوان السماء خلفها */
+    background: rgba(10, 12, 22, 0.6); 
+    border-radius: 12px; 
+    /* توهج خفيف جداً بدل الحدود القاسية */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    color: #d1d1e0; 
+    padding: 2px 14px;
+    margin: 6px 3px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* ── الساعة (توهج الغسق الناعم) ────────────────────────── */
+#clock {
+    /* لون أحمر/برتقالي داكن مسحوب من أسفل الشجرة */
+    background: rgba(180, 50, 40, 0.7); 
+    color: #ffffff;
+    font-weight: 700;
+    /* إضافة توهج بسيط للنص ليحاكي إضاءة "النيون" */
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.4);
+}
+
+/* ── مساحات العمل (بسيطة وغير مشتتة) ─────────────────── */
+#workspaces {
+    background: rgba(0, 0, 0, 0.4);
+    margin: 6px 4px;
+    border-radius: 12px;
+}
+
+#workspaces button {
+    color: #6e6a86; 
+    padding: 0px 10px;
+}
+
+#workspaces button.active {
+    /* لون أزرق جليدي مسحوب من مركز الدوامة في الخلفية */
+    background: rgba(82, 148, 226, 0.3); 
+    color: #93c4ff;
+    border-bottom: 2px solid #5294e2;
+    border-radius: 8px;
+}
+
+/* ── البطارية (لون الذهب الهادئ) ───────────────────────── */
+#battery {
+    background: rgba(40, 40, 50, 0.6);
+    color: #e0af68;
+    border-bottom: 1px solid rgba(224, 175, 104, 0.4);
+}
+
+#battery.charging {
+    color: #9ece6a;
+}
+
+/* ── النظام ──────────────────────────── */
+#network, #pulseaudio, #bluetooth {
+    color: #89b4fa; 
+}
