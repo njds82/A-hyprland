@@ -2,10 +2,7 @@
 
 # ============================================================
 #  A-hyprland - Install Script
-#  Installs required packages and copies configs to ~/.config
 # ============================================================
-
-set -e
 
 # --- Colors ---
 RED='\033[0;31m'
@@ -15,16 +12,27 @@ NC='\033[0m'
 
 info()    { echo -e "${GREEN}[+]${NC} $1"; }
 warning() { echo -e "${YELLOW}[!]${NC} $1"; }
-error()   { echo -e "${RED}[x]${NC} $1"; exit 1; }
+error()   { echo -e "${RED}[x]${NC} $1"; }
 
 # --- Check: Arch Linux ---
 if [ ! -f /etc/arch-release ]; then
     error "This script only works on Arch Linux."
+    exit 1
 fi
 
 # --- Check: not root ---
 if [ "$EUID" -eq 0 ]; then
     error "Do not run this script as root."
+    exit 1
+fi
+
+# --- Install yay if not present ---
+if ! command -v yay &>/dev/null; then
+    info "yay not found, installing..."
+    sudo pacman -S --needed --noconfirm git base-devel || { error "Failed to install git/base-devel."; exit 1; }
+    git clone https://aur.archlinux.org/yay.git /tmp/yay
+    (cd /tmp/yay && makepkg -si --noconfirm) || { error "Failed to install yay."; exit 1; }
+    rm -rf /tmp/yay
 fi
 
 # --- Packages ---
@@ -61,14 +69,26 @@ PACKAGES=(
 
 # --- Install packages ---
 info "Installing packages..."
-sudo pacman -S --needed --noconfirm "${PACKAGES[@]}" || error "Failed to install packages."
+FAILED=()
+for pkg in "${PACKAGES[@]}"; do
+    if ! yay -S --needed --noconfirm "$pkg" 2>/dev/null; then
+        warning "Failed to install: $pkg"
+        FAILED+=("$pkg")
+    fi
+done
+
+if [ ${#FAILED[@]} -gt 0 ]; then
+    warning "The following packages failed to install: ${FAILED[*]}"
+    warning "You may need to install them manually."
+fi
 
 # --- Repo root ---
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 CONFIGS_DIR="$REPO_DIR/configs"
 
 if [ ! -d "$CONFIGS_DIR" ]; then
-    error "Could not find 'configs/' folder. Make sure you run this script from the repo root."
+    error "Could not find 'configs/' folder."
+    exit 1
 fi
 
 # --- Copy configs ---
@@ -92,9 +112,16 @@ WALLPAPER=$(find "$REPO_DIR" -maxdepth 1 -type f \( -name "*.png" -o -name "*.jp
 
 if [ -n "$WALLPAPER" ]; then
     EXT="${WALLPAPER##*.}"
-    info "Copying wallpaper to ~/.config/hypr/wallpaper.$EXT..."
-    cp "$WALLPAPER" "$HOME/.config/hypr/wallpaper.$EXT"
-    info "Wallpaper copied → ~/.config/hypr/wallpaper.$EXT"
+    DEST="$HOME/.config/hypr/wallpaper.$EXT"
+    cp "$WALLPAPER" "$DEST"
+    info "Wallpaper copied → $DEST"
+
+    # --- Fix wallpaper path in hyprland.conf ---
+    HYPR_CONF="$HOME/.config/hypr/hyprland.conf"
+    if [ -f "$HYPR_CONF" ]; then
+        sed -i "s|exec-once = sleep 1 && awww img.*|exec-once = sleep 1 \&\& awww img \"$DEST\" --no-cache|" "$HYPR_CONF"
+        info "Updated wallpaper path in hyprland.conf"
+    fi
 else
     warning "No wallpaper found in repo root. Skipping."
 fi
