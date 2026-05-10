@@ -126,6 +126,8 @@ else
     warning "No wallpaper found in repo root. Skipping."
 fi
 
+awww img "$DEST"
+
 # --- Done ---
 echo ""
 echo -e "${GREEN}=============================${NC}"
