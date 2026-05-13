@@ -45,6 +45,76 @@ The script will:
 
 ---
 
+## Keybindings
+
+> `Super` = Windows key
+
+### General
+
+| Keybind | Action |
+|---------|--------|
+| `Super + Q` | Open terminal (kitty) |
+| `Super + E` | Open file manager (nemo) |
+| `Super + R` | Open app launcher (fuzzel) |
+| `Super + C` | Close active window |
+| `Super + M` | Exit Hyprland |
+| `Super + V` | Toggle floating |
+| `Super + P` | Toggle pseudotile |
+| `Super + J` | Toggle split |
+| `Super + N` | Toggle notification center |
+| `Super + Space` | Switch keyboard layout (EN/AR) |
+
+### Focus
+
+| Keybind | Action |
+|---------|--------|
+| `Super + ←` | Move focus left |
+| `Super + →` | Move focus right |
+| `Super + ↑` | Move focus up |
+| `Super + ↓` | Move focus down |
+
+### Workspaces
+
+| Keybind | Action |
+|---------|--------|
+| `Super + 1..0` | Switch to workspace 1–10 |
+| `Super + Shift + 1..0` | Move window to workspace 1–10 |
+| `Super + S` | Toggle scratchpad |
+| `Super + Shift + S` | Move window to scratchpad |
+| `Super + Scroll Up` | Next workspace |
+| `Super + Scroll Down` | Previous workspace |
+
+### Mouse
+
+| Keybind | Action |
+|---------|--------|
+| `Super + LMB drag` | Move window |
+| `Super + RMB drag` | Resize window |
+
+### Screenshots
+
+| Keybind | Action |
+|---------|--------|
+| `Print` | Copy full screen |
+| `Shift + Print` | Copy selected area |
+| `Alt + Print` | Copy active window |
+
+### Media & Hardware
+
+| Keybind | Action |
+|---------|--------|
+| `Volume Up` | +5% volume |
+| `Volume Down` | -5% volume |
+| `Mute` | Toggle mute |
+| `Mic Mute` | Toggle mic mute |
+| `Brightness Up` | +5% brightness |
+| `Brightness Down` | -5% brightness |
+| `Next` | Next track |
+| `Play/Pause` | Play/Pause |
+| `Prev` | Previous track |
+
+---
+
 ## Screenshots
 
 ![preview](screenshots/1.png)
