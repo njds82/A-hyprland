@@ -1,0 +1,72 @@
+/* ثيم الزجاج الثلجي البارد المستوحى من نقاء السماء */
+
+/* مركز الإشعارات الرئيسي */
+.control-center {
+    background: rgba(15, 28, 46, 0.55); /* أزرق سماوي داكن مع شفافية عالية */
+    border: 1px solid rgba(137, 180, 250, 0.3); /* حافة زرقاء ثلجية نحيفة جداً */
+    border-radius: 14px;
+    padding: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(14px); /* تأثير ضبابي قوي جداً لتشتيت أضواء الخلفية خلفه */
+}
+
+/* مظهر الإشعارات المنبثقة الصغير (Popups) */
+.notification {
+    background: rgba(23, 40, 66, 0.75); /* أزرق ثلجي مريح */
+    border: 1px solid rgba(137, 180, 250, 0.2);
+    border-radius: 10px;
+    color: #f1f5f9;
+    padding: 14px;
+    margin: 6px;
+}
+
+/* عناوين الإشعارات */
+.notification-content .summary {
+    font-size: 14px;
+    font-weight: bold;
+    color: #89b4fa; /* أزرق فاتح ناعم جداً مريح للعين */
+}
+
+/* نص الإشعار الداخلي */
+.notification-content .body {
+    font-size: 13px;
+    color: #94a3b8; /* رمادي ثلجي خفيف */
+}
+
+/* شريط العنوان (كلمة الإشعارات) */
+.widget-title {
+    color: #f1f5f9;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+/* زر مسح الكل - أزرق بارد شفاف */
+.widget-title button {
+    background: rgba(137, 180, 250, 0.15);
+    color: #89b4fa;
+    padding: 5px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(137, 180, 250, 0.25);
+    font-size: 12px;
+}
+
+.widget-title button:hover {
+    background: rgba(137, 180, 250, 0.3);
+    color: #ffffff;
+}
+
+/* زر عدم الإزعاج */
+.widget-dnd {
+    margin-bottom: 12px;
+    color: #94a3b8;
+}
+.widget-dnd toggle {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.widget-dnd toggle:checked {
+    background: rgba(137, 180, 250, 0.25);
+    color: #ffffff;
+}

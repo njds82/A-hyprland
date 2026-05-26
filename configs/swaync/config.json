@@ -1,0 +1,33 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "center",
+  "positionY": "top",
+  "layer": "top",
+  "control-center-margin-top": 5,
+  "control-center-margin-bottom": 10,
+  "control-center-margin-right": 10,
+  "control-center-margin-left": 10,
+  "control-center-width": 550,
+  "control-center-height": 380,
+  "fit-to-screen": false,
+  "keyboard-shortcuts": true,
+  "image-visibility": "always",
+  "transition-time": 200,
+  "hide-on-clear": false,
+  "hide-on-touch": true,
+  "widgets": [
+    "title",
+    "dnd",
+    "notifications"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "الإشعارات",
+      "clear-all-button": true,
+      "button-text": "مسح الكل"
+    },
+    "dnd": {
+      "text": "الرجاء عدم الإزعاج"
+    }
+  }
+}
