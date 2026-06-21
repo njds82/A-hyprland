@@ -30,6 +30,9 @@ fi
 if ! command -v yay &>/dev/null; then
     info "yay not found, installing..."
     sudo pacman -S --needed --noconfirm git base-devel || { error "Failed to install git/base-devel."; exit 1; }
+    
+    # Fix: Remove /tmp/yay if it exists to prevent git clone error
+    rm -rf /tmp/yay
     git clone https://aur.archlinux.org/yay.git /tmp/yay
     (cd /tmp/yay && makepkg -si --noconfirm) || { error "Failed to install yay."; exit 1; }
     rm -rf /tmp/yay
@@ -44,7 +47,7 @@ PACKAGES=(
     wofi
     neofetch
     fastfetch
-    qt6ct  2
+    qt6ct  # Fix: Removed the stray '2'
 
     # Autostart
     swaync
@@ -73,7 +76,8 @@ PACKAGES=(
 info "Installing packages..."
 FAILED=()
 for pkg in "${PACKAGES[@]}"; do
-    if ! yay -S --needed --noconfirm "$pkg" 2>/dev/null; then
+    # Fix: Removed 2>/dev/null so you can see installation errors
+    if ! yay -S --needed --noconfirm "$pkg"; then
         warning "Failed to install: $pkg"
         FAILED+=("$pkg")
     fi
@@ -102,10 +106,13 @@ for folder in "$CONFIGS_DIR"/*/; do
 
     if [ -d "$target" ]; then
         warning "~/.config/$name already exists — backing up to ~/.config/$name.bak"
+        # Fix: Remove old backup to prevent moving the folder inside it
+        rm -rf "$target.bak"
         mv "$target" "$target.bak"
     fi
 
-    cp -r "$folder" "$target"
+    # Improvement: Use cp -a to preserve permissions and symlinks
+    cp -a "$folder" "$target"
     info "Copied $name → ~/.config/$name"
 done
 
@@ -121,14 +128,18 @@ if [ -n "$WALLPAPER" ]; then
     # --- Fix wallpaper path in hyprland.conf ---
     HYPR_CONF="$HOME/.config/hypr/hyprland.conf"
     if [ -f "$HYPR_CONF" ]; then
-        sed -i "s|exec-once = sleep 1 && awww img.*|exec-once = sleep 1 \&\& awww img \"$DEST\" --no-cache|" "$HYPR_CONF"
+        # Improvement: More robust sed to match any exec-once line containing awww
+        sed -i "s|exec-once = .*awww.*|exec-once = sleep 1 \&\& awww img \"$DEST\" --no-cache|" "$HYPR_CONF"
         info "Updated wallpaper path in hyprland.conf"
+    fi
+    
+    # Fix: Moved awww inside the if block, and check if it's installed
+    if command -v awww &>/dev/null; then
+        awww img "$DEST"
     fi
 else
     warning "No wallpaper found in repo root. Skipping."
 fi
-
-awww img "$DEST"
 
 # --- Done ---
 echo ""
