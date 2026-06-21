@@ -1,12 +1,19 @@
-/* Waybar — Ghost Horizon Edition (Transparent & Soft) */
+/* Waybar — Crimson Micro Capsules */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 11px;
+    min-height: 0;
+}
 
 window#waybar {
     background: transparent;
-    border: none;
-    font-family: "JetBrainsMono Nerd Font", monospace;
+    padding: 3px 6px;
 }
 
-/* ── العناصر الأساسية (شفافية زجاجية داكنة) ────────── */
+/* ── الكبسولات المصغرة ────────────────────────────── */
 #clock,
 #idle_inhibitor,
 #tray,
@@ -19,60 +26,209 @@ window#waybar {
 #pulseaudio,
 #bluetooth,
 #temperature,
-#mpris {
-    /* خلفية شبه شفافة جداً لتمتزج مع ألوان السماء خلفها */
-    background: rgba(10, 12, 22, 0.6); 
-    border-radius: 12px; 
-    /* توهج خفيف جداً بدل الحدود القاسية */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-    color: #d1d1e0; 
-    padding: 2px 14px;
-    margin: 6px 3px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+#mpris,
+#custom-prayer,
+#custom-* {
+    background: rgba(25, 8, 8, 0.9);
+    border-radius: 999px;
+    padding: 4px 12px;
+    margin: 0 3px;
+    color: #ff5555;
+    border: 1px solid rgba(255, 80, 80, 0.3);
+    transition: all 0.2s ease;
 }
 
-/* ── الساعة (توهج الغسق الناعم) ────────────────────────── */
+#clock:hover,
+#idle_inhibitor:hover,
+#tray:hover,
+#battery:hover,
+#memory:hover,
+#cpu:hover,
+#network:hover,
+#pulseaudio:hover,
+#bluetooth:hover,
+#mpris:hover,
+#custom-prayer:hover,
+#custom-*:hover {
+    background: rgba(60, 15, 15, 0.95);
+    color: #ffaaaa;
+    border-color: rgba(255, 100, 100, 0.7);
+}
+
+/* ── الساعة (كبسولة مميزة) ────────────────────────── */
 #clock {
-    /* لون أحمر/برتقالي داكن مسحوب من أسفل الشجرة */
-    background: rgba(180, 50, 40, 0.7); 
+    background: rgba(220, 40, 40, 0.9);
     color: #ffffff;
     font-weight: 700;
-    /* إضافة توهج بسيط للنص ليحاكي إضاءة "النيون" */
-    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.4);
+    font-size: 12px;
+    border-color: rgba(255, 150, 150, 0.6);
+    padding: 4px 16px;
 }
 
-/* ── مساحات العمل (بسيطة وغير مشتتة) ─────────────────── */
+#clock:hover {
+    background: rgba(255, 50, 50, 1);
+    border-color: rgba(255, 200, 200, 0.9);
+}
+
+/* ── مساحات العمل ─────────────────────────────────── */
 #workspaces {
-    background: rgba(0, 0, 0, 0.4);
-    margin: 6px 4px;
-    border-radius: 12px;
+    background: rgba(20, 6, 6, 0.85);
+    border-radius: 999px;
+    padding: 3px 5px;
+    margin: 0 5px;
+    border: 1px solid rgba(255, 80, 80, 0.25);
 }
 
 #workspaces button {
-    color: #6e6a86; 
-    padding: 0px 10px;
+    background: transparent;
+    color: #997777;
+    border-radius: 999px;
+    padding: 3px 10px;
+    margin: 0 2px;
+    font-size: 10px;
+    transition: all 0.15s ease;
+}
+
+#workspaces button:hover {
+    background: rgba(100, 25, 25, 0.7);
+    color: #ffaaaa;
 }
 
 #workspaces button.active {
-    /* لون أزرق جليدي مسحوب من مركز الدوامة في الخلفية */
-    background: rgba(82, 148, 226, 0.3); 
-    color: #93c4ff;
-    border-bottom: 2px solid #5294e2;
-    border-radius: 8px;
+    background: rgba(240, 50, 50, 0.95);
+    color: #ffffff;
+    font-weight: 700;
 }
 
-/* ── البطارية (لون الذهب الهادئ) ───────────────────────── */
+/* ── النافذة النشطة ───────────────────────────────── */
+#window {
+    background: rgba(25, 8, 8, 0.8);
+    color: #eeaaaa;
+    border-radius: 999px;
+    padding: 4px 14px;
+    margin: 0 5px;
+    border: 1px solid rgba(255, 80, 80, 0.2);
+    font-weight: 500;
+}
+
+/* ── البطارية ─────────────────────────────────────── */
 #battery {
-    background: rgba(40, 40, 50, 0.6);
-    color: #e0af68;
-    border-bottom: 1px solid rgba(224, 175, 104, 0.4);
+    color: #ffbb55;
+    border-color: rgba(255, 187, 85, 0.3);
 }
 
 #battery.charging {
-    color: #9ece6a;
+    background: rgba(40, 120, 40, 0.85);
+    color: #88ffaa;
+    border-color: rgba(136, 255, 170, 0.4);
 }
 
-/* ── النظام ──────────────────────────── */
-#network, #pulseaudio, #bluetooth {
-    color: #89b4fa; 
+#battery.warning:not(.charging) {
+    background: rgba(220, 40, 40, 0.9);
+    color: #ffffff;
+    border-color: rgba(255, 150, 150, 0.6);
+}
+
+/* ── الصوت ────────────────────────────────────────── */
+#pulseaudio {
+    color: #ff6666;
+    border-color: rgba(255, 102, 102, 0.3);
+}
+
+#pulseaudio.muted {
+    color: #884444;
+    border-color: rgba(136, 68, 68, 0.3);
+}
+
+/* ── الشبكة ───────────────────────────────────────── */
+#network {
+    color: #ff5555;
+    border-color: rgba(255, 85, 85, 0.3);
+}
+
+#network.disconnected {
+    color: #884444;
+}
+
+/* ─ البلوتوث ─────────────────────────────────────── */
+#bluetooth {
+    color: #7799ff;
+    border-color: rgba(119, 153, 255, 0.3);
+}
+
+#bluetooth.connected {
+    color: #aaccff;
+    border-color: rgba(170, 204, 255, 0.4);
+}
+
+/* ─ MPRIS ────────────────────────────────────────── */
+#mpris {
+    color: #ff7777;
+    border-color: rgba(255, 119, 119, 0.25);
+}
+
+/* ── الحرارة والذاكرة والمعالج ───────────────────── */
+#temperature {
+    color: #ff8866;
+}
+
+#temperature.critical {
+    background: rgba(220, 40, 40, 0.9);
+    color: #ffffff;
+    border-color: rgba(255, 150, 150, 0.6);
+}
+
+#memory {
+    color: #ffaa66;
+}
+
+#cpu {
+    color: #ff9966;
+}
+
+/* ── الفواصل ──────────────────────────────────────── */
+#custom-separator_blank,
+#custom-separator_blank_2 {
+    padding: 0 4px;
+}
+
+#custom-separator_dot-line {
+    color: rgba(255, 80, 80, 0.6);
+    padding: 0 3px;
+    font-size: 12px;
+}
+
+#custom-separator_line {
+    background: rgba(255, 80, 80, 0.4);
+    min-width: 1px;
+    margin: 0 5px;
+    border-radius: 999px;
+}
+
+/* ── حالات التحذير ────────────────────────────────── */
+#memory.warning, #cpu.warning {
+    background: rgba(220, 40, 40, 0.9);
+    color: #ffffff;
+    border-color: rgba(255, 150, 150, 0.6);
+}
+
+/* ── Idle Inhibitor ───────────────────────────────── */
+#idle_inhibitor.activated {
+    background: rgba(240, 50, 50, 0.95);
+    color: #ffffff;
+    border-color: rgba(255, 150, 150, 0.7);
+}
+
+/* ── Tray ─────────────────────────────────────────── */
+#tray {
+    padding: 4px 10px;
+}
+
+#tray > .passive {
+    opacity: 0.5;
+}
+
+#tray > .needs-attention {
+    background: rgba(240, 50, 50, 0.95);
+    border-color: rgba(255, 150, 150, 0.7);
 }

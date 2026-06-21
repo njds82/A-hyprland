@@ -6,5 +6,11 @@
 /* IMPORTANT, be mindful with , or ". else waybar will not start */
 
 {
-
+"custom/prayer": {
+    "format": "{}",
+    "exec": "$HOME/.config/waybar/scripts/prayer_countdown.py",
+    "return-type": "json",
+    "interval": 60,
+    "tooltip": true
+}
 }

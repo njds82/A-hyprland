@@ -22,13 +22,11 @@
 "margin-right": 8,
 
 "modules-left": [
-	"idle_inhibitor",
-	"custom/separator#blank",
 	"tray",
 	"custom/separator#blank",
 	"clock",
 	"custom/separator#blank_2",
-	"hyprland/window",
+	"custom/prayer",
 	],
 
 "modules-center": [
@@ -40,6 +38,8 @@
 	],
 
 "modules-right": [
+	"hyprland/window",
+	"custom/separator#blank",
 	"group/laptop",
 	"custom/separator#blank",
 	"group/mobo_drawer",
@@ -47,7 +47,5 @@
 	"group/audio",
 	"custom/separator#dot-line",
 	"mpris",
-	"custom/separator#blank", 
-	"group/status",
 	],
 }

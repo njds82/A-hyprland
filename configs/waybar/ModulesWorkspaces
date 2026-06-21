@@ -180,17 +180,17 @@
 	  },
 	"format-icons": {
 	    "1": "I",
-	    "2": "D",
-	    "3": "E",
-	    "4": "A",
-	    "5": "L",
+	    "2": "L",
+	    "3": "O",
+	    "4": "V",
+	    "5": "E",
 	    "6": "W",
 	    "7": "O",
 	    "8": "R",
 	    "9": "L",
 	    "10": "D"
 	},
-	"format": "{icon} {windows}",
+	"format": "{icon}",
 	"format-window-separator": " ",
 	"window-rewrite-default": " ",
 	"window-rewrite": {		
