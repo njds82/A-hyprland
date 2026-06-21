@@ -1,9 +1,9 @@
-/* ثيم الزجاج الثلجي البارد المستوحى من نقاء السماء */
+/* ثيم الزجاج الثلجي الأحمر المستوحى من درجات المخمل والأحمر الداكن */
 
 /* مركز الإشعارات الرئيسي */
 .control-center {
-    background: rgba(15, 28, 46, 0.55); /* أزرق سماوي داكن مع شفافية عالية */
-    border: 1px solid rgba(137, 180, 250, 0.3); /* حافة زرقاء ثلجية نحيفة جداً */
+    background: rgba(30, 10, 15, 0.65); /* أحمر مخملي داكن مع شفافية عالية */
+    border: 1px solid rgba(243, 139, 168, 0.3); /* حافة حمراء ناعمة ونحيفة جداً */
     border-radius: 14px;
     padding: 15px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -12,8 +12,8 @@
 
 /* مظهر الإشعارات المنبثقة الصغير (Popups) */
 .notification {
-    background: rgba(23, 40, 66, 0.75); /* أزرق ثلجي مريح */
-    border: 1px solid rgba(137, 180, 250, 0.2);
+    background: rgba(55, 20, 25, 0.8); /* أحمر داكن مريح للإشعارات */
+    border: 1px solid rgba(243, 139, 168, 0.2);
     border-radius: 10px;
     color: #f1f5f9;
     padding: 14px;
@@ -24,13 +24,13 @@
 .notification-content .summary {
     font-size: 14px;
     font-weight: bold;
-    color: #89b4fa; /* أزرق فاتح ناعم جداً مريح للعين */
+    color: #f38ba8; /* أحمر وردي فاتح ناعم جداً مريح للعين */
 }
 
 /* نص الإشعار الداخلي */
 .notification-content .body {
     font-size: 13px;
-    color: #94a3b8; /* رمادي ثلجي خفيف */
+    color: #e2cbd0; /* رمادي وردي خفيف */
 }
 
 /* شريط العنوان (كلمة الإشعارات) */
@@ -41,25 +41,25 @@
     margin-bottom: 12px;
 }
 
-/* زر مسح الكل - أزرق بارد شفاف */
+/* زر مسح الكل - أحمر دافئ شفاف */
 .widget-title button {
-    background: rgba(137, 180, 250, 0.15);
-    color: #89b4fa;
+    background: rgba(243, 139, 168, 0.15);
+    color: #f38ba8;
     padding: 5px 14px;
     border-radius: 6px;
-    border: 1px solid rgba(137, 180, 250, 0.25);
+    border: 1px solid rgba(243, 139, 168, 0.25);
     font-size: 12px;
 }
 
 .widget-title button:hover {
-    background: rgba(137, 180, 250, 0.3);
+    background: rgba(243, 139, 168, 0.3);
     color: #ffffff;
 }
 
 /* زر عدم الإزعاج */
 .widget-dnd {
     margin-bottom: 12px;
-    color: #94a3b8;
+    color: #e2cbd0;
 }
 .widget-dnd toggle {
     background: rgba(255, 255, 255, 0.05);
@@ -67,6 +67,6 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 .widget-dnd toggle:checked {
-    background: rgba(137, 180, 250, 0.25);
+    background: rgba(243, 139, 168, 0.25);
     color: #ffffff;
 }

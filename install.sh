@@ -41,8 +41,10 @@ PACKAGES=(
     hyprland
     waybar
     kitty
-    fuzzel
+    wofi
     neofetch
+    fastfetch
+    qt6ct  2
 
     # Autostart
     swaync

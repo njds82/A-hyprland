@@ -1,0 +1,79 @@
+/* ثيم Wofi المخملي الأحمر الشفاف - تصميم كروت شبكي انسيابي ثنائي الأعمدة */
+
+window {
+    font-family: "JetBrains Mono", "Outfit", "Inter", "sans-serif";
+    margin: 0px;
+    border: 1.5px solid rgba(229, 46, 70, 0.65); /* إطار أحمر مضيء ونحيف جداً للزينة */
+    background-color: rgba(22, 10, 12, 0.85); /* شفافية عالية جداً للخلفية */
+    border-radius: 30px; /* حواف دائرية انسيابية وطبيعية */
+}
+
+#outer-box {
+    margin: 5px;
+    border: none;
+    border-radius: 2px;
+    background-color: transparent;
+    padding: 0px;
+}
+
+#input {
+    padding: 10px 14px;
+    margin: 3px 5px 3px 5px;
+    border: 1px solid rgba(229, 46, 70, 0.25);
+    color: #f8e2e5; /* نص أبيض مائل للوردي */
+    font-weight: bold;
+    font-size: 11px;
+    background-color: rgba(37, 18, 21, 0.45); /* خانة إدخال شفافة وناعمة */
+    outline: none;
+    border-radius: 30px; /* حواف دائرية انسيابية (Pill-style) */
+}
+
+#input:focus {
+    border: 1px solid rgba(229, 46, 70, 0.7); /* إضاءة أنعم للإطار عند الكتابة */
+}
+
+#inner-box {
+    margin: 0px;
+    border: none;
+    background-color: transparent;
+}
+
+#scroll {
+    margin: 5px 0px;
+    border: none;
+}
+
+/* تصميم كروت شبكية نصف شفافة وأكثر انسيابية */
+#entry {
+    padding: 4px 1px;
+    margin: 2px;
+    border-radius: 50px; /* حواف بطاقة أنعم وأصغر */
+    background-color: rgba(32, 15, 18, 0.25); /* كروت شفافة لتتناغم مع الخلفية */
+    border: 1px solid rgba(229, 46, 70, 0.08); /* حافة ناعمة غير مرئية تقريباً */
+}
+
+#entry:selected {
+    background-color: rgba(229, 46, 70, 0.75); /* تحديد أحمر شفاف وجميل */
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-left: 5px solid #ffffff; /* زينة: خط أبيض مميز على اليسار للتمييز الانسيابي */
+}
+
+#text {
+    color: #bfa2a6; /* نص العناصر غير المحددة بلون وردي باهت */
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+#text:selected {
+    color: #ffffff; /* نص العنصر المحدد باللون الأبيض الناصع */
+    background-color: transparent;
+}
+
+#img {
+    margin-right: 8px;
+}
+
+#img:selected {
+    background-color: transparent;
+}
+

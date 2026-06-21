@@ -13,8 +13,8 @@ My personal Hyprland configuration files.
 | `hypr` | Hyprland window manager config |
 | `waybar` | Status bar |
 | `kitty` | Terminal emulator |
-| `fuzzel` | App launcher |
-| `neofetch` | System info display |
+| `wofi` | App launcher |
+| `neofetch & fastfetch` | System info display |
 
 ---
 
@@ -38,7 +38,7 @@ chmod +x install.sh
 ```
 
 The script will:
-- Install required packages (waybar, kitty, fuzzel, neofetch, swaync, blueman, network-manager-applet, awww, polkit-gnome, brightnessctl, playerctl, pipewire, grimblast, nemo)
+- Install required packages (waybar, kitty, wofi, neofetch, swaync, blueman, network-manager-applet, awww, polkit-gnome, brightnessctl, playerctl, pipewire, grimblast, nemo, qt6ct)
 - Copy configs to `~/.config/`
 - Back up any existing configs automatically
 - Copy wallpaper to `~/.config/hypr/wallpaper.png`
@@ -55,7 +55,7 @@ The script will:
 |---------|--------|
 | `Super + Q` | Open terminal (kitty) |
 | `Super + E` | Open file manager (nemo) |
-| `Super + R` | Open app launcher (fuzzel) |
+| `Super + R` | Open app launcher (wofi) |
 | `Super + C` | Close active window |
 | `Super + M` | Exit Hyprland |
 | `Super + V` | Toggle floating |
@@ -120,6 +120,7 @@ The script will:
 ![preview](screenshots/1.png)
 ![preview](screenshots/2.png)
 ![preview](screenshots/3.png)
+![preview](screenshots/4.png)
 
 ---
 
